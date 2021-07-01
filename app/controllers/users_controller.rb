@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   def index
     users = User.all
+    # users = current_user.users.all  # this is not working
     render json: users.as_json
   end
 
   def show
     user = User.find(params[:id])
+    # user = current_user.users.find_by(id: params[:id])  # this is not working
     render json: user.as_json
   end
 
